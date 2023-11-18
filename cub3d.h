@@ -128,6 +128,10 @@ typedef struct s_cub3d
 	int ady;
 	int adx;
 
+	int a1;
+	int a2;
+	int b1;
+	int b2;
 
 }t_cub3d;
 
@@ -190,7 +194,7 @@ void 	key_hook(mlx_key_data_t keydata, void* param);
 void 	castRays(t_cub3d *cub);
 void 	drawagain(t_cub3d *cub);
 void 	drawspace(t_cub3d *cub);
-void	draw_line(t_cub3d *cub, int i);
+void	draw_line(t_cub3d *cub);
 t_rd 	raycast(t_cub3d *cub,float ran);
 float	torad(float	degree);
 float 	degree(float *degree);

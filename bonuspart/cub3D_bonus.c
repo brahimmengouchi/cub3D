@@ -124,11 +124,11 @@ void drawrays(t_cub3d *cub)
 	int i = 0;
 	while(i < WIDTH)
 	{
-		cub->pdx *= M_fac;
-		cub->rays[i].whx *= M_fac;
-		cub->pdy *= M_fac;
-		cub->rays[i].why *= M_fac;
-		draw_line(cub, i);
+		cub->a1 = cub->pdx * M_fac;
+		cub->a2 = cub->rays[i].whx * M_fac;
+		cub->b1 = cub->pdy * M_fac;
+		cub->b2 = cub->rays[i].why * M_fac;
+		draw_line(cub);
 		i++;
 	}
 }
