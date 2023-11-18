@@ -28,7 +28,7 @@ void	texture_colors(uint32_t **texture, mlx_texture_t *img)
 				img->pixels[i + 2], 
 				img->pixels[i + 3]);
 		i += 4;
-		if (y == img->width)
+		if (y == (int)img->width)
 		{
 			y = 0;
 			x++;
@@ -36,7 +36,7 @@ void	texture_colors(uint32_t **texture, mlx_texture_t *img)
 	}
 }
 
-uint32_t	**mlxtorgb(t_cub3d *cub, mlx_texture_t *img, uint32_t **texture)
+uint32_t	**mlxtorgb(mlx_texture_t *img, uint32_t **texture)
 {
 	int	i;
 
@@ -58,10 +58,10 @@ uint32_t	**mlxtorgb(t_cub3d *cub, mlx_texture_t *img, uint32_t **texture)
 
 void	load_texture(t_cub3d *cub)
 {
-	cub->ea_texture = mlxtorgb(cub, cub->img_texture[0], cub->ea_texture);
-	cub->so_texture = mlxtorgb(cub, cub->img_texture[1], cub->so_texture);
-	cub->we_texture = mlxtorgb(cub, cub->img_texture[2], cub->we_texture);
-	cub->no_texture = mlxtorgb(cub, cub->img_texture[3], cub->no_texture);
+	cub->ea_texture = mlxtorgb(cub->img_texture[0], cub->ea_texture);
+	cub->so_texture = mlxtorgb(cub->img_texture[1], cub->so_texture);
+	cub->we_texture = mlxtorgb(cub->img_texture[2], cub->we_texture);
+	cub->no_texture = mlxtorgb(cub->img_texture[3], cub->no_texture);
 }
 
 void	check_load_textures(t_cub3d *cub)

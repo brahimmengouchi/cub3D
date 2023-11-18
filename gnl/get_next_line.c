@@ -40,6 +40,7 @@ char	*move_next(char *buffer)
 	free(buffer);
 	return (str);
 }
+
 char	*read_line(char *buffer)
 {
 	char	*line;

@@ -94,12 +94,6 @@ void	wallp(t_cub3d *cub)
 
 void	cell_floor(t_cub3d *cub)
 {
-	mlx_texture_t	fc_texture;
-	int				i;
-
-	fc_texture.width = WIDTH;
-	fc_texture.height = HEIGHT;
-	fc_texture.bytes_per_pixel = 4;
 	cub->floor = rgb_to_hex(cub->f_value);
 	cub->cell = rgb_to_hex(cub->c_value);
 }

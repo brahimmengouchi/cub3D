@@ -19,10 +19,9 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "../libft/libft.h"
 
 char	*get_next_line(int fd);
-size_t	ft_strlen(char *s);
 char	*ft_strjoin_gnl(char *s1, char *s2);
-char	*ft_strchr(char *s, int c);
 
 #endif

@@ -1,5 +1,5 @@
-CC		=	gcc
-FLAGS	=	 -fsanitize=address
+CC		=	cc
+FLAGS	=	 -Wall -Wextra -Werror #-fsanitize=address
 MLXF	=	-framework Cocoa -framework OpenGL -framework IOKit
 SRC		=	mandatorypart/cub3D.c libft/libft.a \
 			check_map_is_valid/check_file_is_valid.c \
@@ -7,7 +7,8 @@ SRC		=	mandatorypart/cub3D.c libft/libft.a \
 			check_map_is_valid/get_map.c check_map_is_valid/check_path_is_valid.c \
 			check_map_is_valid/check_map_not_first.c \
 			check_map_is_valid/check_floor_and_ciel.c setup_textures.c \
-			utils.c txtr.c raycast.c drawline.c 
+			utils.c txtr.c raycast.c raycast_utils.c drawline.c \
+			utils2.c utils3.c draw_map.c
 
 BONUS	=	bonuspart/cub3D_bonus.c libft/libft.a \
 			check_map_is_valid/check_file_is_valid.c \
@@ -15,7 +16,8 @@ BONUS	=	bonuspart/cub3D_bonus.c libft/libft.a \
 			check_map_is_valid/get_map.c check_map_is_valid/check_path_is_valid.c \
 			check_map_is_valid/check_map_not_first.c \
 			check_map_is_valid/check_floor_and_ciel.c setup_textures.c \
-			utils.c draw_map.c txtr.c raycast.c drawline.c
+			utils.c draw_map.c txtr.c raycast.c raycast_utils.c drawline.c \
+			utils2.c utils3.c
 LIBFT	=	libft
 GLW		=	"/Users/bmengouc/.brew/opt/glfw/lib/"
 MLX_PATH = ""
@@ -29,19 +31,13 @@ CLN		=	make clean -C
 
 all:
 	@make -C $(LIBFT)
-	@$(CC) $(FLAGS) $(SRC) $(MLXF) libft/libft.a -o $(NAME) -Iinclude -lglfw -L$(GLW)
+	@$(CC) $(FLAGS) $(SRC) $(MLXF) libft/libft.a ./MLX42/build/libmlx42.a -o $(NAME) -Iinclude -lglfw -L$(GLW)
 	@echo "Compilation > Done ! mandatory compiled succefully"
 
 bonus:
 	@make -C $(LIBFT)
 	@$(CC) $(FLAGS) $(BONUS) $(MLXF)  libft/libft.a ./MLX42/build/libmlx42.a -o $(NAME_B)  -Iinclude -lglfw -L$(GLW)
 	@echo "Compilation > Done ! bonus compiled succefully"
-
-$(ARC): $(OBJ)
-	@$(AR) $(ARC) $(OBJ)
-
-%.o: %.c
-	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	@$(CLN) $(LIBFT)
