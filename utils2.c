@@ -61,7 +61,6 @@ void	freeall(t_cub3d *cub)
 		z = 0;
 		while (z < (int)cub->img_texture[i]->height)
 		{
-			printf("lol\n");
 			if (i == 0)
 				free(cub->ea_texture[z]);
 			if (i == 1)

@@ -47,11 +47,11 @@ char	*trim(char *str)
 	int		i;
 	char	*new;
 
-	new = malloc(sizeof(char) * ((int)ft_strlen(str)));
+	new = malloc(sizeof(char) * ((int)ft_strlen(str) + 1));
 	i = -1;
 	while (str[++i])
 	{
-		if (!ft_isspace(str[i]))
+		if (!ft_isspace(str[i]) && str[i])
 			new[i] = str[i];
 		else
 		{
@@ -81,7 +81,6 @@ int	check_map_not_first(char **map)
 			&& ft_strcmp("WE", line) != 0 && ft_strcmp("EA", line) != 0
 			&& ft_strcmp("F", line) != 0 && ft_strcmp("C", line) != 0)
 		{
-			free(line);
 			printf("Error\nError in the map !!\n");
 			return (1);
 		}

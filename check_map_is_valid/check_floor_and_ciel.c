@@ -14,7 +14,7 @@
 
 void	message_error(void)
 {
-	perror("ERROR\n");
+	printf("ERROR\n");
 	exit(1);
 }
 
@@ -40,7 +40,10 @@ int	myfunc2(char *str, int i)
 
 	new = ft_substr(str, i, ft_strlen(str));
 	arr = ft_split(new, ',');
-	if (!check_is_num(arr) || !check_is_between(arr))
+	i = 0;
+	while (arr[i])
+		i++;
+	if (i != 3 || !check_is_num(arr) || !check_is_between(arr))
 	{
 		free(new);
 		free_map(arr);
@@ -92,7 +95,6 @@ int	check_floor_and_ciel(char **map)
 		{
 			if (!process_line(map[i]))
 			{
-				printf("br\n");
 				printf("Error\nError in the map !!\n");
 				free(line);
 				return (0);
