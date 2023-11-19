@@ -1,5 +1,5 @@
 CC		=	cc
-FLAGS	=	 -Wall -Wextra -Werror #-fsanitize=address
+FLAGS	=	 -Wall -Wextra -Werror -fsanitize=address
 MLXF	=	-framework Cocoa -framework OpenGL -framework IOKit
 SRC		=	mandatorypart/cub3D.c libft/libft.a \
 			check_map_is_valid/check_file_is_valid.c \
